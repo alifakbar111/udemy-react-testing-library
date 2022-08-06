@@ -11,20 +11,22 @@ function App() {
       <div className="App">
         <Stack p={5}>
           <VStack>
-          <Button
-            style={{ backgroundColor: disabled ? 'gray' : buttonColor }}
-            onClick={() => setButtonColor(newButtonColor)}
-            disabled={disabled}
-          >
-            Change to {newButtonColor}
-          </Button>
-          <Checkbox
-            type="checkbox"
-            name="checkbox"
-            defaultChecked={disabled}
-            aria-checked={disabled}
-            onChange={(e) => setDisabled(e.target.checked)}
-            />
+            <Button
+              style={{ backgroundColor: disabled ? 'gray' : buttonColor }}
+              onClick={() => setButtonColor(newButtonColor)}
+              disabled={disabled}
+            >
+              Change to {newButtonColor}
+            </Button>
+            <Checkbox
+              type="checkbox"
+              name="checkbox"
+              defaultChecked={disabled}
+              aria-checked={disabled}
+              onChange={(e) => setDisabled(e.target.checked)}
+            >
+              Disable button
+            </Checkbox>
             </VStack>
         </Stack>
       </div>
