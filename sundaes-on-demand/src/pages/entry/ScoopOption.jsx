@@ -23,6 +23,8 @@ const ScoopOption = ({ name, imagePath, updateItemCount }) => {
         <Col xs={5} style={{ textAlign: "left" }}>
           <Form.Control
             type="number"
+            min={0}
+            step={1}
             defaultValue={0}
             onChange={handleChange}
           />
