@@ -3,9 +3,13 @@ import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { Popover, OverlayTrigger, Stack } from "react-bootstrap";
 
-const SummaryForm = () => {
+const SummaryForm = ({ setOrderPhase }) => {
   const [isChecked, setIsChecked] = useState(false);
+  function handleSubmit(event) {
+    event.preventDefault();
 
+    setOrderPhase("completed");
+  }
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>No ice cream will actually be delivered</Popover.Body>
@@ -23,7 +27,7 @@ const SummaryForm = () => {
 
   return (
     <Stack direction="horizontal">
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="terms-and-conditions">
           <Form.Check
             id="checkbox"

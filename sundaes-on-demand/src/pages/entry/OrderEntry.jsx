@@ -1,7 +1,8 @@
+import { Button } from "react-bootstrap";
 import { useOrderDetails } from "../../contexts/OrderDetails";
 import Options from "./Options";
 
-const OrderEntry = () => {
+const OrderEntry = ({ setOrderPhase }) => {
   const [orderDetails] = useOrderDetails();
   return (
     <div>
@@ -9,6 +10,7 @@ const OrderEntry = () => {
       <Options optionType="scoops" />
       <Options optionType="toppings" />
       <h2>Grand Total: {orderDetails.totals.grandTotal}</h2>
+      <Button onClick={() => setOrderPhase("review")}>Order Sundae!</Button>
     </div>
   );
 };
