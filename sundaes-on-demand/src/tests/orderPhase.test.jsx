@@ -33,7 +33,7 @@ test("order phases for happy path", async () => {
   // check summary information based on order
   const summaryHeading = screen.getByRole("heading", {
     name: "Order Summary",
-    level: "1",
+    level: 1,
   });
   expect(summaryHeading).toBeInTheDocument();
 
@@ -69,12 +69,20 @@ test("order phases for happy path", async () => {
   });
   userEvent.click(confirmOrderBtn);
 
+  // expect loading to show
+  const loading = screen.getByText(/loading/i);
+  expect(loading).toBeInTheDocument();
+
   // confirm order number on confirmation page
   const thankYouHeader = await screen.findByRole("heading", {
     name: /thank you/i,
     level: 1,
   });
   expect(thankYouHeader).toBeInTheDocument();
+
+  // expect loading has disappeard
+  const notLoading = screen.queryByText("loading");
+  expect(notLoading).not.toBeInTheDocument();
 
   const orderNumber = await screen.findByText(/order number/i);
   expect(orderNumber).toBeInTheDocument();
