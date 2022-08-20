@@ -29,9 +29,7 @@ const OrderConfirmation = ({ setOrderPhase }) => {
       <div style={{ textAlign: "center" }}>
         <h1>Thank You!</h1>
         <p>your order number is {orderNumber}</p>
-        <p style={{ fontSize: "25%" }}>
-          as per our terms and conditions, nothing will happen now
-        </p>
+        <p>as per our terms and conditions, nothing will happen now</p>
         <Button onClick={handleClick}>Create New Order</Button>
       </div>
     );
